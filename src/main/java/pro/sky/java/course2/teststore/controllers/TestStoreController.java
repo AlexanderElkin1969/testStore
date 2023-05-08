@@ -1,7 +1,6 @@
 package pro.sky.java.course2.teststore.controllers;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import pro.sky.java.course2.teststore.exeptions.*;
 import pro.sky.java.course2.teststore.model.*;
@@ -19,9 +18,9 @@ public class TestStoreController {
         this.storeService = storeService;
     }
 
-    @GetMapping(produces = MediaType.TEXT_HTML_VALUE)
+    @GetMapping()
     public String hello() {
-        return "<h1 style = \" color: green \">Добро пожаловать в наш интернет-магазин.</h1>" +
+        return "Добро пожаловать в наш интернет-магазин." +
                 "Для просмотра каталога товара воспользуйтесь командой /order.   " +
                 "Для выбора товара воспользуйтесь командой /order/add?ID=Артикль_товара&quantity=количество_товара.   " +
                 "Для просмотра выбранного товара воспользуйтесь командой /order/get.   ";
@@ -43,9 +42,9 @@ public class TestStoreController {
         return storeService.get();
     }
 
-    @ExceptionHandler(LittleProductExeption.class)
+    @ExceptionHandler(LittleValueProductExeption.class)
     @ResponseStatus(code = HttpStatus.BAD_REQUEST)
-    public String LittleProductExeption(LittleProductExeption e) {
+    public String LittleProductExeption(LittleValueProductExeption e) {
         return e.getMessage();
     }
 

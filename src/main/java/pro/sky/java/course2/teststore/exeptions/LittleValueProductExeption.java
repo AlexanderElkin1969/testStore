@@ -4,8 +4,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(code = HttpStatus.BAD_REQUEST)
-public class LittleProductExeption extends RuntimeException {
-    public LittleProductExeption(String message) {
+public class LittleValueProductExeption extends RuntimeException {
+    public LittleValueProductExeption(String message) {
         super(message);
     }
 }

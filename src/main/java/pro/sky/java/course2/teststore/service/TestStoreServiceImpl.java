@@ -42,7 +42,7 @@ public class TestStoreServiceImpl implements TestStoreService {
             product.setQuantity(balance);
             return order;
         } else {
-            throw new LittleProductExeption("Товар временно не доступен в данном объёме.");
+            throw new LittleValueProductExeption("Товар временно не доступен в данном объёме.");
         }
     }
 
